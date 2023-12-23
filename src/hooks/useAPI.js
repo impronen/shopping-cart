@@ -1,4 +1,3 @@
-import { userEventApi } from "@testing-library/user-event/dist/types/setup/api";
 import { useEffect, useState } from "react";
 
 export default function useAPI() {
@@ -22,5 +21,6 @@ export default function useAPI() {
     };
     fetchData();
   }, []);
+
   return { productData, loadingData, error };
 }
