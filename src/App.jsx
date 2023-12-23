@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import useAPI from "./hooks/useAPI";
 
 function App() {
+  const [productData, loadingData, error] = useAPI();
   return (
     <>
       <div className="menu">
