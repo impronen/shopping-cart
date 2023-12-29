@@ -44,6 +44,7 @@ const useShopData = () => {
 };
 
 function App() {
+  const data = useShopData();
   return (
     <>
       <div className="menu">

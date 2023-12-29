@@ -1,13 +1,13 @@
 import { useOutletContext } from "react-router-dom";
 
 export default function MainPage() {
-  const [productData, loadingData, error] = useOutletContext();
+  const { productData, loadingData, error } = useOutletContext();
 
   return (
     <>
-      <h1>This is the main page area, where you'll be having some products</h1>
+      <h1>This is the main page area, where youll be having some products</h1>
 
-      {productData && (
+      {/*  {productData && (
         <ul>
           {productData.map((product) => (
             <li key={product.id}>
@@ -17,7 +17,7 @@ export default function MainPage() {
             </li>
           ))}
         </ul>
-      )}
+      )} */}
     </>
   );
 }
