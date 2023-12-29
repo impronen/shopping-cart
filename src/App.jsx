@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { Outlet } from "react-router-dom";
+import { Outlet, useOutletContext } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const ShopData = () => {
+const useShopData = () => {
   const [productData, setProductData] = useState(null);
   const [loadingData, setLoadingData] = useState(true);
   const [error, setError] = useState(null);
@@ -29,11 +29,21 @@ const ShopData = () => {
     fetchData();
   }, []);
 
-  return { productData, loadingData, error };
+  return (
+    <Outlet
+      context={[
+        productData,
+        setProductData,
+        loadingData,
+        setLoadingData,
+        error,
+        setError,
+      ]}
+    />
+  );
 };
 
 function App() {
-  const { productData, loadingData, error } = ShopData();
   return (
     <>
       <div className="menu">
