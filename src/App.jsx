@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import useAPI from "./hooks/useAPI";
-import { useEffect, useState } from "react";
 
 function App() {
-  const { productData, loadingData, error } = useAPI();
+  useAPI();
 
   return (
     <>

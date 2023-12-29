@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 
 export default function useAPI() {
   const [productData, setProductData] = useState(null);
@@ -7,20 +8,25 @@ export default function useAPI() {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://fakestoreapi.com/products?limit=7"
-        );
-        const result = await response.json();
-        setProductData(result);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoadingData(false);
-      }
+      fetch("https://fakestoreapi.com/products?limit=5")
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("API responded with an error");
+          }
+          return res.json();
+        })
+        .then((json) => console.log(json))
+        .then((json) => {
+          setProductData(json);
+          setLoadingData(false);
+        })
+        .catch((error) => {
+          setError(error.message);
+          setLoadingData(false);
+        });
     };
     fetchData();
   }, []);
 
-  return { productData, loadingData, error };
+  return <Outlet context={[productData, loadingData, error]} />;
 }
