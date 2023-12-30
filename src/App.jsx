@@ -16,7 +16,7 @@ const useShopData = () => {
           }
           return res.json();
         })
-        .then((json) => console.log(json))
+
         .then((json) => {
           setProductData(json);
           setLoadingData(false);
@@ -29,22 +29,18 @@ const useShopData = () => {
     fetchData();
   }, []);
 
-  return (
-    <Outlet
-      context={[
-        productData,
-        setProductData,
-        loadingData,
-        setLoadingData,
-        error,
-        setError,
-      ]}
-    />
-  );
+  return { productData, loadingData, error };
 };
 
 function App() {
-  const data = useShopData();
+  const {
+    productData,
+    setProductData,
+    loadingData,
+    setLoadingData,
+    error,
+    setError,
+  } = useShopData();
   return (
     <>
       <div className="menu">
@@ -64,7 +60,16 @@ function App() {
         </nav>
       </div>
       <div className="outlet">
-        <Outlet />
+        <Outlet
+          context={[
+            productData,
+            setProductData,
+            loadingData,
+            setLoadingData,
+            error,
+            setError,
+          ]}
+        />
       </div>
     </>
   );
