@@ -41,6 +41,7 @@ function App() {
     error,
     setError,
   } = useShopData();
+
   return (
     <>
       <div className="menu">

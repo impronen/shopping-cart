@@ -3,9 +3,15 @@ import PropTypes from "prop-types";
 import ProductCard from "./ProductCard";
 
 export default function MainPage() {
-  const [productData, setProductData] = useOutletContext();
-  const [loadingData, setLoadingData] = useOutletContext();
-  console.log(productData);
+  const [
+    productData,
+    setProductData,
+    loadingData,
+    setLoadingData,
+    error,
+    setError,
+  ] = useOutletContext();
+
   return (
     <>
       <h1>This is the main page area, where youll be having some products</h1>
