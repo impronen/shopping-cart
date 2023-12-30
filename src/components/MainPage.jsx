@@ -1,4 +1,6 @@
 import { useOutletContext } from "react-router-dom";
+import PropTypes from "prop-types";
+import ProductCard from "./ProductCard";
 
 export default function MainPage() {
   const [productData, setProductData] = useOutletContext();
@@ -7,18 +9,16 @@ export default function MainPage() {
     <>
       <h1>This is the main page area, where youll be having some products</h1>
       <div>
-        {productData && (
-          <ul>
-            {productData.map((product) => (
-              <li key={product.id}>
-                <img src={product.image} alt={product.title} />
-                <p>{product.title}</p>
-                <p>{product.price}</p>
-              </li>
-            ))}
-          </ul>
-        )}
+        <ul>
+          {productData.map((product) => (
+            <ProductCard key={product.id} {...product} />
+          ))}
+        </ul>
       </div>
     </>
   );
 }
+
+MainPage.propTypes = {
+  productData: PropTypes.array,
+};
