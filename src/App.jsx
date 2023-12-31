@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Outlet, useOutletContext } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const useShopData = () => {

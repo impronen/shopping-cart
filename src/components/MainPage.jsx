@@ -14,7 +14,9 @@ export default function MainPage() {
 
   return (
     <>
-      <h1>This is the main page area, where youll be having some products</h1>
+      <h1 className="text-sky-400/75">
+        This is the main page area, where youll be having some products
+      </h1>
       <div>
         {loadingData ? (
           <p>Loading...</p>
