@@ -14,14 +14,14 @@ export default function MainPage() {
 
   return (
     <>
-      <h1 className="text-sky-400/75">
-        This is the main page area, where youll be having some products
+      <h1 className="font-medium text-2xl text-peach-highlight text-center m-4">
+        This is the main page area, where you'll be having some products
       </h1>
-      <div>
+      <div className="flex flex-wrap mx-12">
         {loadingData ? (
           <p>Loading...</p>
         ) : (
-          <ul>
+          <ul className="flex flex-wrap justify-evenly">
             {productData.map((product) => (
               <ProductCard key={product.id} {...product} />
             ))}

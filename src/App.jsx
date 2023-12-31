@@ -9,7 +9,7 @@ const useShopData = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      fetch("https://fakestoreapi.com/products?limit=5")
+      fetch("https://fakestoreapi.com/products?limit=9")
         .then((res) => {
           if (!res.ok) {
             throw new Error("API responded with an error");
@@ -44,17 +44,17 @@ function App() {
 
   return (
     <>
-      <div className="menu">
-        <h1>This is the menu</h1>
+      <div className="menu flex justify-between py-5 text-peach-highlight">
+        <h1 className="pl-10 w-5/12">This is the menu</h1>
         <nav>
-          <ul>
-            <li>
+          <ul className="flex flex-wrap mx-5">
+            <li className="mx-5">
               <Link to="splashpage">Home</Link>
             </li>
-            <li>
+            <li className="mx-5">
               <Link to="mainPage">Shop</Link>
             </li>
-            <li>
+            <li className="mx-5">
               <Link to="cartpage">Cart</Link>
             </li>
           </ul>
