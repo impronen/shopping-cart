@@ -45,17 +45,17 @@ function App() {
   return (
     <>
       <div className="menu flex justify-between py-5 text-peach-highlight">
-        <h1 className="pl-10 w-5/12">This is the menu</h1>
+        <h1 className="pl-10 w-5/12">fake shop</h1>
         <nav>
           <ul className="flex flex-wrap mx-5">
             <li className="mx-5">
-              <Link to="splashpage">Home</Link>
+              <Link to="splashpage">home</Link>
             </li>
             <li className="mx-5">
-              <Link to="mainPage">Shop</Link>
+              <Link to="mainPage">shop</Link>
             </li>
             <li className="mx-5">
-              <Link to="cartpage">Cart</Link>
+              <Link to="cartpage">cart</Link>
             </li>
           </ul>
         </nav>
