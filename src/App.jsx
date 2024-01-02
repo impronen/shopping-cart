@@ -44,7 +44,7 @@ function App() {
 
   return (
     <>
-      <div className="menu flex justify-between py-5 text-peach-highlight">
+      <div className="menu flex justify-between py-10 text-peach-highlight">
         <h1 className="pl-10 w-5/12">fake shop</h1>
         <nav>
           <ul className="flex flex-wrap mx-5">
