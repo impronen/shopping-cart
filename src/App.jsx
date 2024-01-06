@@ -6,6 +6,7 @@ const useShopData = () => {
   const [productData, setProductData] = useState(null);
   const [loadingData, setLoadingData] = useState(true);
   const [error, setError] = useState(null);
+  const [cart, setCartItems] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,6 +41,8 @@ function App() {
     setLoadingData,
     error,
     setError,
+    cart,
+    setCartItems,
   } = useShopData();
 
   return (
@@ -69,6 +72,8 @@ function App() {
             setLoadingData,
             error,
             setError,
+            cart,
+            setCartItems,
           ]}
         />
       </div>
