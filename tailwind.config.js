@@ -7,6 +7,7 @@ export default {
         "light-orange": "#ffe6c7",
         "deep-gray": "#454545",
         "burning-orange": "#ff6000",
+        "secondary-orange": "#FF7700",
         "peach-highlight": "#ffa559",
         "peach-light": "#ffe6c7",
       },

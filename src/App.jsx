@@ -30,7 +30,7 @@ const useShopData = () => {
     fetchData();
   }, []);
 
-  return { productData, loadingData, error };
+  return { productData, loadingData, error, cart, setCartItems };
 };
 
 function App() {

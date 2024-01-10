@@ -11,17 +11,23 @@ export default function MainPage() {
     setLoadingData,
     error,
     setError,
+    cart,
+    setCartItems,
   ] = useOutletContext();
 
   return (
     <div className="min-w-8/12">
       <h1 className="font-medium text-2xl text-peach-highlight text-center m-12">
-        This is the main page area, where you'll be having some products
+        Wanna buy some stuff? We have stuff...
       </h1>
       <div className="flex flex-wrap mx-12">
         {loadingData ? (
-          <div className="flex items-center place-self-stretch">
-            <img src={Spinner} alt="Loading Spinner" />
+          <div className="flex justify-center items-center h-full w-full">
+            <img
+              src={Spinner}
+              alt="Loading Spinner"
+              className="mt-50 self-center"
+            />
           </div>
         ) : (
           <ul className="flex flex-wrap justify-evenly">
