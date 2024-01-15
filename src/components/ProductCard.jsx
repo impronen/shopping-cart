@@ -21,9 +21,11 @@ export default function ProductCard({ title, image, price, id }) {
   ] = useOutletContext();
 
   function setStuffToCart(itemID) {
-    console.log(itemID);
     if (!cartBrowser(itemID, cart)) {
-      setCartItems((cart) => [...cart, { id: itemID, quantity: +1 }]);
+      setCartItems((cart) => [
+        ...cart,
+        { id: itemID, title, image, price, quantity: +1 },
+      ]);
     } else {
       setCartItems((cart) =>
         cart.map((item) =>
@@ -48,9 +50,13 @@ export default function ProductCard({ title, image, price, id }) {
       className="flex flex-col justify-evenly shadow-2xl border-8 border-burning-orange bg-white max-w-96 min-h-96 m-5 rounded-3xl p-1"
     >
       <div className="flex item-center justify-center">
-        <img src={image} alt={title} className="w-1/2 rounded my-5" />
+        <img
+          src={image}
+          alt={title}
+          className="w-1/2 min-h-52 object-contain rounded my-5"
+        />
       </div>
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col py-6 justify-center">
         <h1 className="text-deep-gray font-bold text-center p-2 ">{title}</h1>
         <div className="flex flex-row m-2">
           <p className="self-center text-center basis-2/4">{formattedPrice}</p>
