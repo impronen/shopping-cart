@@ -6,17 +6,17 @@ export default function CartItem({ itemID, title, image, price, quantity }) {
   const totalFormattedPrice = numberFormatter(price * quantity);
 
   return (
-    <div className="flex justify-between items-center py-8 px-3 border-y-2 border-burning-orange text-peach-highlight w-11/12">
+    <div className="flex justify-between items-center my-8 mx-3 text-peach-highlight w-11/12 text-center leading-6">
       <div>
         <img
           src={image}
           alt={title}
-          className="max-h-24 object-contain rounded"
+          className="max-h-40 object-contain rounded"
         />
       </div>
       <div className="flex flex-col">
-        <p>item</p>
-        <p>{title}</p>
+        <p className="leading-8">item</p>
+        <p className="max-w-52 leading-6">{title}</p>
       </div>
       <div className="flex flex-col">
         <p>price</p>

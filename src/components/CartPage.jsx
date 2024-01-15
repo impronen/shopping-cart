@@ -23,11 +23,11 @@ export default function CartPage() {
     setCartItems,
   ] = useOutletContext();
   return (
-    <>
-      <h1 className="font-medium text-2xl text-peach-highlight text-center m-4">
+    <div className="flex flex-col align-center w-screen">
+      <h1 className="font-medium text-2xl text-peach-highlight text-center my-12">
         Here be your shopping cart
       </h1>
-      <ul className="flex flex-column justify-center w-11/12">
+      <ul className="flex flex-column self-center justify-center justify-self-center w-10/12 border-y-2  border-burning-orange">
         <CartItem
           itemID={testObject.id}
           title={testObject.title}
@@ -36,6 +36,6 @@ export default function CartPage() {
           quantity={testObject.quantity}
         />
       </ul>
-    </>
+    </div>
   );
 }
