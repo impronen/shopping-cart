@@ -2,8 +2,9 @@
 import PropTypes from "prop-types";
 import numberFormatter from "../hooks/numberFormatter";
 import { useOutletContext } from "react-router-dom";
+import setStuffToCart from "../hooks/setStuffToCart";
 
-export default function CartItem({ itemID, title, image, price, quantity }) {
+export default function CartItem({ id, title, image, price, quantity }) {
   const formattedPrice = numberFormatter(price);
   const totalFormattedPrice = numberFormatter(price * quantity);
 
@@ -18,8 +19,23 @@ export default function CartItem({ itemID, title, image, price, quantity }) {
     setCartItems,
   ] = useOutletContext();
 
+  const clickHandler = () => {
+    setStuffToCart({
+      itemID: id,
+      title,
+      image,
+      price,
+      cart,
+      setCartItems,
+      action: "remove",
+    });
+  };
+
   return (
-    <div className="flex justify-between items-center my-8 mx-5 self-center border-burning-orange text-peach-highlight w-11/12 text-center leading-6">
+    <div
+      key={id}
+      className="flex justify-between items-center my-8 mx-5 self-center border-burning-orange text-peach-highlight w-11/12 text-center leading-6"
+    >
       <div>
         <img
           src={image}
@@ -44,7 +60,7 @@ export default function CartItem({ itemID, title, image, price, quantity }) {
         <p>{totalFormattedPrice}</p>
       </div>
       <div className="flex flex-col">
-        <button>X</button>
+        <button onClick={clickHandler}>X</button>
       </div>
     </div>
   );
@@ -54,6 +70,6 @@ CartItem.propTypes = {
   title: PropTypes.string,
   image: PropTypes.string,
   price: PropTypes.number,
-  itemID: PropTypes.number,
+  id: PropTypes.number,
   quantity: PropTypes.number,
 };

@@ -22,7 +22,15 @@ export default function ProductCard({ title, image, price, id }) {
   ] = useOutletContext();
 
   const clickHandler = () => {
-    setStuffToCart({ itemID: id, title, image, price, cart, setCartItems });
+    setStuffToCart({
+      itemID: id,
+      title,
+      image,
+      price,
+      cart,
+      setCartItems,
+      action: "add",
+    });
     setTransition(!wasTransitioned);
     setTimeout(() => {
       console.log(cart);
