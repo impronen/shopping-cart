@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useOutletContext } from "react-router-dom";
 import PropTypes from "prop-types";
 import ProductCard from "./ProductCard";
