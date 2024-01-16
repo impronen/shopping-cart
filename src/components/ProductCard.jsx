@@ -4,6 +4,7 @@ import { useState } from "react";
 import numberFormatter from "../hooks/numberFormatter";
 import { useOutletContext } from "react-router-dom";
 import cartBrowser from "../hooks/cartBrowser";
+import setStuffToCart from "../hooks/setStuffToCart";
 
 export default function ProductCard({ title, image, price, id }) {
   const formattedPrice = numberFormatter(price);
@@ -20,27 +21,12 @@ export default function ProductCard({ title, image, price, id }) {
     setCartItems,
   ] = useOutletContext();
 
-  function setStuffToCart(itemID) {
-    if (!cartBrowser(itemID, cart)) {
-      setCartItems((cart) => [
-        ...cart,
-        { id: itemID, title, image, price, quantity: +1 },
-      ]);
-    } else {
-      setCartItems((cart) =>
-        cart.map((item) =>
-          item.id === itemID ? { ...item, quantity: item.quantity + 1 } : item
-        )
-      );
-    }
-  }
-
   const clickHandler = () => {
-    setStuffToCart(id);
+    setStuffToCart({ itemID: id, title, image, price, cart, setCartItems });
     setTransition(!wasTransitioned);
     setTimeout(() => {
-      setTransition(false);
       console.log(cart);
+      setTransition(false);
     }, 200);
   };
 

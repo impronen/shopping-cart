@@ -1,7 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { useOutletContext } from "react-router-dom";
-import PropTypes from "prop-types";
-import Spinner from "../assets/Spinner.svg";
 import CartItem from "./CartItem";
 import TotalDisplayer from "./TotalDisplayer";
 import numberFormatter from "../hooks/numberFormatter";
@@ -22,7 +20,7 @@ export default function CartPage() {
   const totalPrice = numberFormatter(totalPriceCounter(cart));
 
   return (
-    <div className="flex flex-col align-center w-screen">
+    <div className="flex flex-col align-center min-h-full">
       <h1 className="font-medium text-2xl text-peach-highlight text-center my-12">
         Here be your shopping cart
       </h1>
@@ -31,7 +29,7 @@ export default function CartPage() {
           <CartItem key={cartItem.id} {...cartItem} />
         ))}
       </ul>
-      <div className="flex self-center my-8 mx-5 w-11/12 ">
+      <div className="flex flex-row justify-end  self-center my-8 mx-5 w-11/12 ">
         <TotalDisplayer totalPrice={totalPrice} />
       </div>
     </div>

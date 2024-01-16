@@ -43,6 +43,9 @@ export default function CartItem({ itemID, title, image, price, quantity }) {
         <p>total</p>
         <p>{totalFormattedPrice}</p>
       </div>
+      <div className="flex flex-col">
+        <button>X</button>
+      </div>
     </div>
   );
 }
