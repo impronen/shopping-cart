@@ -40,7 +40,7 @@ export default function CartItem({ id, title, image, price, quantity }) {
         <img
           src={image}
           alt={title}
-          className="max-h-40 object-contain rounded"
+          className="max-h-40 w-52 object-contain rounded"
         />
       </div>
       <div className="flex flex-col">
@@ -59,8 +59,10 @@ export default function CartItem({ id, title, image, price, quantity }) {
         <p>total</p>
         <p>{totalFormattedPrice}</p>
       </div>
-      <div className="flex flex-col">
-        <button onClick={clickHandler}>X</button>
+      <div className="flex flex-col text-red-500 hover:animate-spuggle">
+        <button className="text-xl font-bold" onClick={clickHandler}>
+          X
+        </button>
       </div>
     </div>
   );

@@ -21,6 +21,22 @@ export default {
       fontFamily: {
         sans: ["Courier", "monospace"],
       },
+      keyframes: {
+        spuggle: {
+          "0%, 100%": { transform: "rotate(-5deg)" },
+          "50%": { transform: "rotate(5deg)" },
+        },
+        shootup: {
+          "0%": { opacity: "0" },
+          "50%": { opacity: "1", transform: "translate(42px, 18px)" },
+          "90%": { opacity: "0.88" },
+          "100%": { opacity: "0" },
+        },
+      },
+      animation: {
+        spuggle: "spuggle 1s ease-in-out infinite",
+        shootup: "",
+      },
     },
   },
   plugins: [],

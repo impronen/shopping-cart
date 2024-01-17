@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import numberFormatter from "../hooks/numberFormatter";
 import { useOutletContext } from "react-router-dom";
-import cartBrowser from "../hooks/cartBrowser";
 import setStuffToCart from "../hooks/setStuffToCart";
 
 export default function ProductCard({ title, image, price, id }) {
