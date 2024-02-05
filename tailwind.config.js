@@ -27,15 +27,19 @@ export default {
           "50%": { transform: "rotate(5deg)" },
         },
         shootup: {
-          "0%": { opacity: "0" },
+          "0%": { opacity: "0", class: "visible" },
           "50%": { opacity: "1", transform: "translate(42px, 18px)" },
-          "90%": { opacity: "0.88" },
-          "100%": { opacity: "0" },
+          "90%": { opacity: "0.88", transform: "translate(42px, 18px)" },
+          "100%": {
+            opacity: "0",
+            class: "invisible",
+            transform: "translate(42px, 18px)",
+          },
         },
       },
       animation: {
         spuggle: "spuggle 1s ease-in-out infinite",
-        shootup: "",
+        shootup: "shootup 2s ease-in-out",
       },
     },
   },

@@ -53,14 +53,21 @@ export default function ProductCard({ title, image, price, id }) {
         <h1 className="text-deep-gray font-bold text-center p-2 ">{title}</h1>
         <div className="flex flex-row m-2">
           <p className="self-center text-center basis-2/4">{formattedPrice}</p>
-          <button
-            className={`min-w-15 transform ${
-              wasTransitioned ? "-rotate-12 scale-110" : ""
-            } transition-transform duration-200 ease-in-out bg-burning-orange rounded px-4 py-2 transition ease-in-out delay-50 hover:scale-105 hover:bg-secondary-orange`}
-            onClick={clickHandler}
-          >
-            Add to Cart
-          </button>
+          <div className="flex flex-row ">
+            <button
+              className={`min-w-15 transform ${
+                wasTransitioned ? "-rotate-12 scale-110" : ""
+              } transition-transform duration-200 ease-in-out bg-burning-orange rounded px-4 py-2 transition ease-in-out delay-50 hover:scale-105 hover:bg-secondary-orange`}
+              onClick={clickHandler}
+            >
+              Add to Cart
+            </button>
+            <div
+              className={`rounded-full align-top size-3 bg-secondary-orange ${
+                wasTransitioned ? "shootup" : ""
+              }`}
+            ></div>
+          </div>
         </div>
       </div>
     </div>
