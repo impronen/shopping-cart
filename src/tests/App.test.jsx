@@ -1,21 +1,30 @@
 /* eslint-disable no-undef */
 import { render, screen } from "@testing-library/react";
-import App, { ShopDataContext } from "../App";
+import { MemoryRouter } from "react-router-dom";
+import App from "../App";
+import { expect, it } from "vitest";
 
-describe("App component", () => {
+describe("App component basics", () => {
   it("renders correct heading", () => {
-    const contextValue = {
-      productData: {},
-      setProductData: () => {},
-      loadingData: false,
-      setLoadingData: () => {},
-      error: null,
-      setError: () => {},
-      cart: {},
-      setCartItems: () => {},
-    };
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <App />
+      </MemoryRouter>
+    );
+    expect(screen.getByRole("heading").textContent).toMatch("fake shop");
+  });
+  it("renders correct links", () => {
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <App />
+      </MemoryRouter>
+    );
 
-    render(<App />);
-    expect(screen.getByRole("heading").textContent).toMatch("fake store");
+    const links = screen.getAllByRole("link");
+    const linkTexts = ["home", "shop", "cart"];
+
+    links.forEach((link, index) => {
+      expect(link.textContent).toMatch(linkTexts[index]);
+    });
   });
 });
