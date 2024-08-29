@@ -19,6 +19,8 @@ export default function CartPage() {
 
   const totalPrice = numberFormatter(totalPriceCounter(cart));
 
+  console.log(useOutletContext());
+
   return (
     <div className="flex flex-col align-center min-h-full">
       <h1 className="font-medium text-2xl text-peach-highlight text-center my-12">

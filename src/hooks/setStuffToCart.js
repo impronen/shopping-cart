@@ -16,8 +16,6 @@ function addToCart({ itemID, title, image, price, cart, setCartItems }) {
 }
 
 function removeFromCart({ itemID, cart, setCartItems }) {
-  console.log(itemID);
-  console.log(`console logging inside the remove function ${cart}`);
   setCartItems((cart) => cart.filter((item) => item.id !== itemID));
 }
 

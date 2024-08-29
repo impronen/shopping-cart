@@ -13,6 +13,7 @@ describe("App component basics", () => {
     );
     expect(screen.getByRole("heading").textContent).toMatch("fake shop");
   });
+
   it("renders correct links", () => {
     render(
       <MemoryRouter initialEntries={["/"]}>
